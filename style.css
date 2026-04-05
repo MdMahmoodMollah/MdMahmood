@@ -1,0 +1,788 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f8f9fa;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../homebackgroundposter.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    color: white;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+    animation: sparkle 6s ease-in-out infinite alternate;
+}
+
+@keyframes sparkle {
+    0% { opacity: 0.4; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(1.02); }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header h1 {
+    color: #FFD700;
+    font-size: 2.2rem;
+    text-shadow: 4px 4px 0 #8B0000, 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #ff6b6b;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 5rem;
+}
+
+.hero-left {
+    flex: 1;
+    max-width: 40%;
+    padding-left: 5%;
+}
+
+.hero-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.coming-soon-posters {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.coming-soon-poster {
+    width: 250px;
+    height: 375px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.coming-soon-text {
+    font-family: 'Bebas Neue', 'Oswald', 'Impact', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #FFD700;
+    text-shadow: 3px 3px 0 #000;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.hero-main-title {
+    font-family: 'Bebas Neue', 'Oswald', 'Impact', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 0 #ff6b6b, 10px 10px 0 #000;
+    animation: fadeInUp 1s ease;
+    line-height: 1.1;
+}
+
+/* Movie Theme Home CTA */
+.movie-cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #dc143c 0%, #8B0000 50%, #dc143c 100%);
+    color: #FFD700 !important;
+    padding: 20px 50px;
+    text-decoration: none;
+    border: 3px solid #FFD700;
+    border-radius: 15px;
+    font-family: 'Bebas Neue', 'Oswald', 'Impact', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 #000;
+    box-shadow: 
+        0 10px 30px rgba(220, 20, 60, 0.5),
+        inset 0 2px 0 rgba(255, 215, 0, 0.3);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.movie-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.movie-cta-btn:hover::before {
+    left: 100%;
+}
+
+.movie-cta-btn:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 
+        0 20px 50px rgba(220, 20, 60, 0.7),
+        inset 0 4px 0 rgba(255, 215, 0, 0.4),
+        0 0 40px rgba(255, 215, 0, 0.6);
+    border-color: #FF4500;
+    background: linear-gradient(135deg, #FF4500 0%, #dc143c 50%, #8B0000 100%);
+}
+
+.cta-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    padding: 15px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+}
+
+/* Shiny Red Movie Tickets Buttons */
+.movie-book-btn {
+    background: linear-gradient(145deg, #dc143c, #b71c1c);
+    color: white !important;
+    border: 2px solid #FF6B35;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Bebas Neue', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    box-shadow: 
+        0 8px 25px rgba(220, 20, 60, 0.6),
+        inset 0 1px 0 rgba(255,255,255,0.2),
+        0 0 20px rgba(255, 107, 53, 0.5);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.movie-book-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.movie-book-btn:hover::before {
+    left: 100%;
+}
+
+.movie-book-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 
+        0 15px 35px rgba(220, 20, 60, 0.8),
+        inset 0 2px 0 rgba(255,255,255,0.3),
+        0 0 35px rgba(255, 107, 53, 0.8);
+    background: linear-gradient(145deg, #FF6B35, #dc143c);
+    border-color: #FFD700;
+}
+
+/* Dramatic Red-Black-Gold NOW SHOWING Background */
+.movies-section {
+    padding: 100px 0 80px;
+    background: 
+        linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(220, 20, 60, 0.9) 100%),
+        radial-gradient(circle at center, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    margin: 2rem;
+    box-shadow: 
+        0 30px 80px rgba(139, 0, 0, 0.5),
+        inset 0 2px 0 rgba(255, 215, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.movies-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Custom Movie Poster Hover Effects */
+.movie-avengers.movie-card:hover {
+    box-shadow: 0 0 50px #90EE90, 0 30px 80px rgba(0,0,0,0.4) !important;
+    background: rgba(144, 238, 144, 0.1);
+}
+
+.movie-avengers .movie-poster::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #90EE90, #32CD32, #90EE90);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0.6;
+    filter: blur(10px);
+}
+
+.movie-spirit.movie-card:hover {
+    box-shadow: 0 0 50px #FFD700, 0 30px 80px rgba(0,0,0,0.6) !important;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.movie-spirit .movie-poster::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0.7;
+    filter: blur(12px);
+}
+
+.movie-rockstar.movie-card:hover {
+    box-shadow: 0 0 50px #800000, 0 0 30px #FFD700, 0 30px 80px rgba(0,0,0,0.4) !important;
+    background: rgba(128, 0, 0, 0.9);
+}
+
+.movie-rockstar .movie-poster::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #800000, #FFD700, #800000);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0.8;
+    filter: blur(10px);
+}
+
+.movie-godzilla.movie-card:hover {
+    box-shadow: 
+        0 0 40px #00BFFF, 
+        0 0 40px #FF0000, 
+        0 30px 80px rgba(0,0,0,0.5) !important;
+    background: linear-gradient(45deg, rgba(0,191,255,0.3), rgba(255,0,0,0.3));
+}
+
+.movie-godzilla .movie-poster::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #00BFFF, #FF1493, #FF0000, #00BFFF);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0.7;
+    filter: blur(15px);
+    animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+    0% { opacity: 0.7; filter: blur(15px); }
+    100% { opacity: 1; filter: blur(10px); }
+}
+
+/* Regular Movie Title (Previous Style Restored) */
+.movie-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Golden "NOW SHOWING" Title */
+.movies-section h2 {
+    text-align: center;
+    font-size: 3.5rem;
+    font-family: 'Bebas Neue', 'Oswald', 'Impact', sans-serif;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    color: #FFD700;
+    text-shadow: 
+        3px 3px 0 #8B0000,
+        0 0 30px rgba(255, 215, 0, 0.8),
+        6px 6px 0 rgba(0,0,0,0.5);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.movies-section h2::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #FFD700, transparent);
+    border-radius: 2px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 280px);
+    justify-content: center;
+    gap: 1rem;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1400px) {
+    .movie-grid {
+        grid-template-columns: repeat(4, 260px);
+        justify-content: center;
+    }
+    
+    .movie-card {
+        width: 260px !important;
+        margin: 0;
+    }
+    
+    .movie-poster {
+        height: 280px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .movie-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+.movie-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+}
+
+.movie-poster {
+    width: 100%;
+    height: 340px;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    position: relative;
+}
+
+.movie-poster::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+}
+
+.movie-info {
+    padding: 1.5rem;
+    position: relative;
+}
+
+.movie-duration, .movie-price {
+    color: #666;
+    margin-bottom: 0.3rem;
+}
+
+.booking-section, .confirmation, .bookings-section {
+    background: #f8f9fa !important;
+}
+
+.booking-section {
+    padding: 100px 0;
+    min-height: 100vh;
+}
+
+.booking-section.hidden {
+    display: none;
+}
+
+.booking-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 300px;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    align-items: start;
+}
+
+.confirm-seats-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: end;
+}
+
+#confirm-seats-btn {
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+#confirm-seats-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.showtime-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.showtime-btn {
+    background: white;
+    border: 2px solid #ddd;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.showtime-btn.active,
+.showtime-btn:hover {
+    background: #ff6b6b;
+    color: white;
+    border-color: #ff6b6b;
+}
+
+.seat-selector {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+#screen {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.seat-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.seat {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.seat.available {
+    background: #48cae4;
+    color: white;
+}
+
+.seat.available:hover {
+    background: #45b7ca;
+    transform: scale(1.1);
+}
+
+.seat.selected {
+    background: #ff6b6b;
+    color: white;
+    border-color: #ff6b6b;
+}
+
+.seat.booked {
+    background: #6c757d;
+    color: white;
+    cursor: not-allowed;
+}
+
+.seat-legend {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.9rem;
+}
+
+.seat-legend span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.seat-legend span::before {
+    content: '';
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+}
+
+.available::before { background: #48cae4; }
+.selected::before { background: #ff6b6b; }
+.booked::before { background: #6c757d; }
+
+.summary {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    height: fit-content;
+    max-width: 280px;
+}
+
+.summary p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.total {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ff6b6b;
+}
+
+.user-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.user-form input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.user-form input:focus {
+    outline: none;
+    border-color: #ff6b6b;
+}
+
+#confirm-booking:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.confirmation {
+    padding: 150px 0;
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #8B0000 0%, #000000 50%, #B22222 100%) !important;
+    background-attachment: fixed;
+}
+
+.confirmation.hidden {
+    display: none;
+}
+
+.success-icon {
+    font-size: 8rem;
+    color: #48cae4;
+    margin-bottom: 2rem;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+.confirmation h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.bookings-section {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.bookings-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+    .booking-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .movie-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-main-title {
+        font-size: 2.5rem;
+    }
+    
+    .seat-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+.arrow-icon {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+    font-size: 0.9em;
+}
+
+.arrow-icon:hover {
+    transform: translateY(3px) scale(1.1);
+}
+
+.cta-btn:hover .arrow-icon {
+    animation: bounce 0.6s ease-in-out;
+}
+

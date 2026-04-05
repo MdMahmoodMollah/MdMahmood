@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieTicket - Book Your Tickets</title>
+    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Bebas+Neue&family=Oswald:wght@700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+<h1 style="font-family: 'Impact', 'Bebas Neue', 'Oswald', sans-serif; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; text-shadow: 3px 3px 0 #ff6b6b, 6px 6px 0 #000;">CHITRALYA</h1>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#movies">Movies</a>
+                <a href="#bookings">My Bookings</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Partners banner removed, now in nav -->
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <h2 class="hero-main-title">Book your show now</h2>
+                    <a href="#movies" class="movie-cta-btn">Book Now</a>
+                </div>
+                <div class="hero-right">
+                    <div class="coming-soon-posters">
+                        <div class="coming-soon-poster" style="background-image: url('../oddseyposter.png');"></div>
+                        <div class="coming-soon-poster" style="background-image: url('../Ramamyanaposter.png');"></div>
+                    </div>
+                    <div class="coming-soon-text">COMING SOON</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="movies" class="movies-section">
+            <div class="container">
+                <h2>Now Showing</h2>
+                <div id="movie-list" class="movie-grid">
+                    <!-- Movies will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="booking-section hidden">
+            <div class="container">
+                <h2 id="selected-movie-title"></h2>
+                <div class="booking-content">
+                    <div class="showtime-selector">
+                        <h3>Select Showtime</h3>
+                        <div id="showtimes" class="showtime-buttons">
+                            <!-- Showtimes populated by JS -->
+                        </div>
+                    </div>
+                    <div class="seat-selector">
+                        <h3>Select Seats</h3>
+                        <div id="screen"><div class="screen-text">SCREEN</div></div>
+                        <div id="seats" class="seat-grid">
+                            <!-- Seats populated by JS -->
+                        </div>
+                        <div class="seat-legend">
+                            <span class="available"></span> Available
+                            <span class="selected"></span> Selected
+                            <span class="booked"></span> Booked
+                        </div>
+                    </div>
+                    <div class="confirm-seats-section">
+                        <button id="confirm-seats-btn" class="cta-btn" onclick="confirmSeats()">Confirm Seats</button>
+                    </div>
+                    <!-- New Timings Tab Section -->
+                    <div class="timings-tab-section">
+                        <h3>Select Show Timing</h3>
+                        <div id="show-timings" class="showtime-buttons">
+                            <!-- Timings populated by JS -->
+                        </div>
+                    </div>
+                    <div class="summary">
+                        <h3>Summary</h3>
+                        <p>Seats: <span id="selected-seats">0</span></p>
+                        <p>Price per seat: $ <span id="ticket-price">12</span></p>
+                        <p>Show Timing: <span id="selected-timing">-</span></p>
+                        <p class="total">Grand Total: $ <span id="total-price">0</span></p>
+                    </div>
+                </div>
+                <div class="user-form">
+                    <h3>Your Details</h3>
+                    <form id="booking-form">
+                        <input type="text" id="name" placeholder="Full Name" required>
+                        <input type="email" id="email" placeholder="Email" required>
+                        <input type="tel" id="phone" placeholder="Phone" required>
+                        <button type="submit" class="cta-btn">Pay Now</button>
+                    </form>
+                </div>
+
+                <!-- Enhanced Payment Section with Forms -->
+                <section id="payment" class="payment-section hidden">
+                    <div class="container">
+                        <h2>Complete Your Payment</h2>
+                        <div class="payment-summary">
+                            <div class="summary-poster" id="payment-poster-bg"></div>
+                            <h3>Order Summary</h3>
+                            <p id="payment-movie-title" class="payment-movie-title"><strong>AVENGERS DOOMSDAY</strong></p>
+                            <p>Showtime: <span id="payment-showtime"></span></p>
+                            <p>Seats: <span id="payment-seats"></span></p>
+                            <p class="total">Total: $<span id="payment-total">0</span></p>
+                        </div>
+                        <div class="payment-methods">
+                            <h3>Choose Payment Method</h3>
+                            <div class="payment-buttons">
+                                <button class="payment-btn upi active" onclick="selectPayment('upi')">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>UPI</span>
+                                </button>
+                                <button class="payment-btn cash" onclick="selectPayment('cash')">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Cash at Venue</span>
+                                </button>
+                            </div>
+                            
+                            <!-- UPI Form -->
+                            <div id="upi-form" class="payment-form hidden">
+                                <input type="text" id="upi-id" placeholder="Enter UPI ID (e.g. username@paytm)" required>
+                                <input type="password" id="upi-pin" placeholder="UPI PIN" required maxlength="6">
+                                <button class="cta-btn" onclick="confirmUPI()">Confirm Payment</button>
+                            </div>
+
+                            <!-- Cash OTP -->
+                            <div id="cash-otp" class="payment-form hidden">
+                                <h4>Your Venue OTP: <span id="cash-otp-code" style="font-size: 2rem; font-weight: bold; color: #ff6b6b;"></span></h4>
+                                <p style="margin-top: 1rem;">Show this OTP at the venue counter while paying.</p>
+<button class="cta-btn" onclick="confirmCash()">Booking Complete <i class="fas fa-arrow-down arrow-icon"></i></button>
+                            </div>
+                            
+                            <button id="complete-payment" class="cta-btn" disabled style="margin-top: 2rem; width: 100%; display: none;">Pay Now</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section id="confirmation" class="confirmation hidden">
+            <div class="container">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h2>Booking Confirmed!</h2>
+                <p id="confirmation-message"></p>
+                <a href="#movies" class="cta-btn">Book Another <i class="fas fa-arrow-up arrow-icon"></i></a>
+            </div>
+        </section>
+
+        <section id="bookings" class="bookings-section">
+            <div class="container">
+                <h2>My Bookings</h2>
+                <div id="past-bookings">
+                    <p>No bookings yet. <a href="#movies">Book now!</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MovieTicket. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
