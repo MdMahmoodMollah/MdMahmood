@@ -3,8 +3,8 @@ const movies = [
     {
         id: 1,
         title: 'AVENGERS DOOMSDAY',
-        poster: '../Doomsadayposter.png',
-        summaryPoster: '../drdoom.png',
+        poster: 'Doomsadayposter.png',
+        summaryPoster: 'drdoom.png',
         duration: '2h 45m',
         price: 15,
         showtimes: ['11:30', '2:45', '4:00', '5:45', '8:00'],
@@ -13,8 +13,8 @@ const movies = [
     {
         id: 2,
         title: 'SPIRIT',
-        poster: '../Spiritposter.png',
-        summaryPoster: '../spiritlogoposter.png',
+        poster: 'Spiritposter.png',
+        summaryPoster: 'spiritlogoposter.png',
         duration: '2h 30m',
         price: 12,
         showtimes: ['12:00', '2:00', '3:35', '7:00', '9:00'],
@@ -23,8 +23,8 @@ const movies = [
     {
         id: 3,
         title: 'ROCKSTAR',
-        poster: '../rockstarranbirposter.png',
-        summaryPoster: '../rockstar2ndposter.png',
+        poster: 'rockstarranbirposter.png',
+        summaryPoster: 'rockstar2ndposter.png',
         duration: '2h 40m',
         price: 13,
         showtimes: ['2:30', '5:00', '8:00'],
@@ -33,8 +33,8 @@ const movies = [
     {
         id: 4,
         title: 'GODZILLA VS KONG',
-        poster: '../gXkposter.png',
-        summaryPoster: '../godzillavskongfightposter.png',
+        poster: 'gXkposter.png',
+        summaryPoster: 'godzillavskongfightposter.png',
         duration: '2h 50m',
         price: 14,
         showtimes: ['4:00', '7:45'],
