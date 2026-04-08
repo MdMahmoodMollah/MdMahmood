@@ -15,7 +15,7 @@ body {
 }
 
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://github.com/MdMahmoodMollah/MdMahmood/blob/main/homebackgroundposter.png?raw=true');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/MdMahmood/homebackgroundposter.png');
     background-size: cover;
     background-position: center;
     height: 100vh;
